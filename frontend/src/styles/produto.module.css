@@ -1,0 +1,41 @@
+.box__produto_admin {
+  display: flex;
+  flex-direction: row;
+  gap: 5px 20px;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 6px 9px;
+}
+
+.box__produto_admin img {
+  border-radius: 8px;
+}
+
+.box__desc_iten {
+  width: 100%;
+}
+
+.box__buttons_admin {
+  display: flex;
+  width: 80%;
+  flex-direction: row;
+  gap: 5px;
+  flex-wrap: wrap;
+  padding: 5px 0px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.box__desc_iten h2 {
+  font-weight: bold;
+  color: var(--black-subt);
+  font-size: 16px;
+}
+
+.box__desc_iten p {
+  font-weight: normal;
+  color: var(--black-subt);
+  font-size: 14px;
+}

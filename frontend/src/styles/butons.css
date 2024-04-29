@@ -1,0 +1,59 @@
+.btn_blue {
+  background-color: #3f8cff;
+  color: var(--white-full);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 16px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.btn_blue:hover {
+  background-color: #266acc;
+}
+
+.btn_orange {
+  background-color: #ff8c00;
+  color: var(--white-full);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 16px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.btn_orange:hover {
+  background-color: #ff6d00;
+}
+
+.btn_red {
+  background-color: var(--red-base);
+  color: var(--white-full);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 16px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.btn_red:hover {
+  background-color: #d93025;
+}
+
+.btn_green {
+  background-color: #03ce7d;
+  color: var(--white-full);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 16px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.btn_green:hover {
+  background-color: #00b96e;
+}

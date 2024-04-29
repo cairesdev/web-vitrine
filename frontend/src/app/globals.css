@@ -4,6 +4,12 @@
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+
+  --black-subt: #27272a;
+  --black-gray: #808089;
+
+  --white-full: #fff;
+  --red-base: #ff424f;
 }
 
 * {
@@ -12,10 +18,15 @@
   margin: 0;
 }
 
+html::-webkit-scrollbar {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  background-color: #f5f5fa;
 }
 
 a {

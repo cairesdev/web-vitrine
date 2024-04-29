@@ -7,7 +7,7 @@ import "@/styles/butons.css";
 interface Props {
   className?: string;
   disabled?: boolean;
-  action: "excluir" | "editar" | "Visualizar";
+  action: "excluir" | "editar" | "visualizar";
   data: IProduct;
 }
 
@@ -16,11 +16,11 @@ export default function Button({ className, disabled, action, data }: Props) {
 
   function handleButton() {
     switch (action) {
-      case "Visualizar":
-        console.log("Visualizar");
+      case "visualizar":
+        router.push(`/admin/visualizar/${data._id}`);
         break;
       case "editar":
-        console.log("editar");
+        router.push(`/admin/editar/${data._id}`);
         break;
       case "excluir":
         router.refresh();
@@ -38,7 +38,7 @@ export default function Button({ className, disabled, action, data }: Props) {
       disabled={disabled}
       type="button"
     >
-      {action === "Visualizar"
+      {action === "visualizar"
         ? "Visualizar"
         : action === "editar"
         ? "Editar"

@@ -1,5 +1,5 @@
 import api from "@/services/api";
-import { Iresponse } from "@/models/products";
+import { IResponseUnique, Iresponse } from "@/models/products";
 import { AxiosHttpClient, HttpRequest } from "@/infra/adapters";
 
 const HttpClient = new AxiosHttpClient(api);
@@ -13,6 +13,26 @@ export const getProducts = async () => {
     const response = await HttpClient.request(requestData);
     if ("data" in response) {
       return response.data as Iresponse;
+    } else {
+      throw new Error(
+        "Ocorreu um erro durante a requisição, nenhum 'data' foi recebido."
+      );
+    }
+  } catch (error) {
+    console.log("Erro ao tentar capturar os produtos: ", error);
+    throw error;
+  }
+};
+
+export const getProduct = async (id: string) => {
+  const requestData: HttpRequest = {
+    method: "GET",
+    url: `produto/show_uinque/${id}`,
+  };
+  try {
+    const response = await HttpClient.request(requestData);
+    if ("data" in response) {
+      return response.data as IResponseUnique;
     } else {
       throw new Error(
         "Ocorreu um erro durante a requisição, nenhum 'data' foi recebido."

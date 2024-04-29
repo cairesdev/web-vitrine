@@ -57,3 +57,34 @@
 .btn_green:hover {
   background-color: #00b96e;
 }
+
+/* CLIENT BUTONS */
+
+.btn_blue_two {
+  background-color: #1a94ff;
+  color: var(--white-full);
+  border: none;
+  border-radius: 16px;
+  padding: 8px 30px;
+  font-size: 16px;
+  font-weight: normal;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.btn_blue_two:hover {
+  background-color: #127ddb;
+}
+
+.btn_blue_no_fill {
+  color: var(--blue-base);
+  border: 2px solid #1a94ff;
+  border-radius: 16px;
+  padding: 8px 30px;
+  font-size: 16px;
+  font-weight: normal;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}

@@ -11,7 +11,7 @@ export default async function Listagem() {
       <h1>Lista</h1>
       {data.results.map((item) => (
         <ItemProdutoADM key={item._id} item={item}>
-          <Button action="Visualizar" data={item} className="btn_green" />
+          <Button action="visualizar" data={item} className="btn_green" />
           <Button action="editar" data={item} className="btn_orange" />
           <Button action="excluir" data={item} className="btn_red" />
         </ItemProdutoADM>

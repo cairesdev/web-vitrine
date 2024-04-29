@@ -50,7 +50,10 @@ class ProductController {
       if (!product) {
         return res.status(404).json({ error: "Produto não encontrado" });
       }
-      res.status(200).json(product);
+      res.status(200).json({
+        message: "Produto encontrado com sucesso",
+        result: product,
+      });
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: error.message });

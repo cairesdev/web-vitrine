@@ -10,6 +10,11 @@ export interface IProduct {
 
 export interface Iresponse {
   message: string;
-  quantidade: number;
+  quantidade?: number;
   results: IProduct[];
+}
+
+export interface IResponseUnique {
+  message: string;
+  result: IProduct;
 }

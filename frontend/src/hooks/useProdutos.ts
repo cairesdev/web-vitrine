@@ -69,6 +69,5 @@ export const useCreateProduct = async (data: any) => {
   };
 
   const response = await HttpClient.request(requestData);
-  console.log("response: ", response);
   return response;
 };

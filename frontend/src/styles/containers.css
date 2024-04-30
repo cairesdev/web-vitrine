@@ -29,15 +29,14 @@
 }
 
 .container__categorias_adm {
-  display: flex;
-  flex-direction: column;
   padding: 3px 8px;
 }
 
-.box__categoria_adm {
+.carrousel_categoria__adm {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 8px;
+  flex-wrap: nowrap;
+  gap: 8px;
+  padding: 5px 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
 }

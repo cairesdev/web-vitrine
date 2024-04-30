@@ -16,11 +16,13 @@ export default async function Listagem() {
         <h1>Painel Administrativo</h1>
       </div>
       <div className="container__categorias_adm">
-        <h2 className="subtitulo">Listagem de Categorias</h2>
+        <h2 className="subtitulo">Categorias Cadastradas</h2>
         <div className="box__categoria_adm">
-          {categorias.results.map((item) => (
-            <ItemCategoriaADM item={item} key={item._id} />
-          ))}
+          <div className="carrousel_categoria__adm">
+            {categorias.results.map((item) => (
+              <ItemCategoriaADM item={item} key={item._id} />
+            ))}
+          </div>
         </div>
       </div>
       <div className="box">

@@ -1,0 +1,90 @@
+/* forms.module.css */
+.form_container {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.form_input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form_input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.form_button {
+  background-color: #1a94ff;
+  color: var(--white-full);
+  border: none;
+  border-radius: 16px;
+  padding: 8px 30px;
+  font-size: 16px;
+  font-weight: normal;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.form_button:hover {
+  background-color: #2980b9;
+}
+
+.image_container {
+  margin-bottom: 15px;
+}
+
+.form_image {
+  border-radius: 5px;
+}
+
+.form_file_input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+}
+
+.form_file_input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.btn_blue_no_fill {
+  color: var(--blue-base);
+  border: 2px solid #1a94ff;
+  border-radius: 16px;
+  padding: 8px 30px;
+  font-size: 16px;
+  font-weight: normal;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.box__buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.remove_button {
+  margin-top: 10px;
+  background-color: #ff3b30;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.remove_button:hover {
+  background-color: #d93025;
+}

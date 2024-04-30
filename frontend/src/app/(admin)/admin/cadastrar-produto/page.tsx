@@ -1,8 +1,11 @@
 "use client";
+// import "@/styles/containers.css";
+import styles from "@/styles/forms.module.css";
 import { useState } from "react";
-import "@/styles/containers.css";
 import { useCreateProduct } from "@/hooks/useProdutos";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function CreateProdutoPage() {
   const router = useRouter();
@@ -11,7 +14,7 @@ export default function CreateProdutoPage() {
     NOME: "",
     DESCRICAO: "",
     CATEGORIA: "",
-    STATUS: 0,
+    STATUS: 1,
   });
 
   const handleChange = (e: any) => {
@@ -19,6 +22,13 @@ export default function CreateProdutoPage() {
     setFormValues({
       ...formValues,
       [name]: name === "IMAGEM" ? files[0] : value,
+    });
+  };
+
+  const handleRemoveImage = () => {
+    setFormValues({
+      ...formValues,
+      IMAGEM: null,
     });
   };
 
@@ -30,43 +40,76 @@ export default function CreateProdutoPage() {
 
   return (
     <div>
-      <h1>Cadastrar Produto</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="file"
-          name="IMAGEM"
-          accept="image/*"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="NOME"
-          value={formValues.NOME}
-          onChange={handleChange}
-          placeholder="Nome do produto"
-        />
-        <input
-          type="text"
-          name="DESCRICAO"
-          value={formValues.DESCRICAO}
-          onChange={handleChange}
-          placeholder="Descrição do produto"
-        />
-        <input
-          type="text"
-          name="CATEGORIA"
-          value={formValues.CATEGORIA}
-          onChange={handleChange}
-          placeholder="Categoria do produto"
-        />
-        <input
-          type="number"
-          name="STATUS"
-          value={formValues.STATUS}
-          onChange={handleChange}
-        />
-        <button type="submit">Cadastrar</button>
-      </form>
+      <div className="header__listagem">
+        <h1>Cadastrar Produto</h1>
+      </div>
+      <br />
+      <div className={styles.form_container}>
+        <form onSubmit={handleSubmit}>
+          {!formValues.IMAGEM && (
+            <input
+              className={styles.form_file_input}
+              type="file"
+              name="IMAGEM"
+              accept="image/*"
+              onChange={handleChange}
+              multiple={false}
+            />
+          )}
+          {formValues.IMAGEM && (
+            <div className={styles.image_container}>
+              <Image
+                className={styles.form_image}
+                src={URL.createObjectURL(formValues.IMAGEM)}
+                alt="Imagem do produto"
+                width={320}
+                height={320}
+              />
+              <button
+                type="button"
+                className={styles.remove_button}
+                onClick={handleRemoveImage}
+              >
+                Remover Imagem
+              </button>
+            </div>
+          )}
+          <input
+            className={styles.form_input}
+            type="text"
+            name="NOME"
+            value={formValues.NOME}
+            onChange={handleChange}
+            placeholder="Nome do produto"
+          />
+          <input
+            className={styles.form_input}
+            type="text"
+            name="CATEGORIA"
+            value={formValues.CATEGORIA}
+            onChange={handleChange}
+            placeholder="Categoria do produto"
+          />
+          <textarea
+            className={styles.form_input}
+            name="DESCRICAO"
+            value={formValues.DESCRICAO}
+            onChange={handleChange}
+            placeholder="Descrição do produto"
+          />
+          <div className={styles.box__buttons}>
+            <button className={styles.form_button} type="submit">
+              Cadastrar
+            </button>
+            <Link
+              href={"/admin/lista-produtos"}
+              className={styles.btn_blue_no_fill}
+            >
+              Voltar
+            </Link>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

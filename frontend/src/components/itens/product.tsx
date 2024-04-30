@@ -1,4 +1,4 @@
-import { IProduct } from "@/models/products";
+import { IProduct } from "@/models/responses";
 import Image from "next/image";
 import React from "react";
 import styles from "@/styles/produto.module.css";

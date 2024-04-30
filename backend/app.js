@@ -27,10 +27,7 @@ app.use(
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/produtos", express.static(path.join(__dirname, "../lib/produtos")));
-app.use(
-  "/categorias",
-  express.static(path.join(__dirname, "../lib/categorias"))
-);
+app.use("/categoria", express.static(path.join(__dirname, "../lib/categoria")));
 app.use(helmet());
 
 app.get("/", (req, res) => res.status(200).json("ok"));

@@ -1,5 +1,5 @@
 import api from "@/services/api";
-import { IResponseUnique, Iresponse } from "@/models/products";
+import { IResponseUnique, Iresponse } from "@/models/responses";
 import { AxiosHttpClient, HttpRequest } from "@/infra/adapters";
 
 const HttpClient = new AxiosHttpClient(api);
@@ -56,4 +56,19 @@ export const deleteProduct = async (id: string, image: string) => {
     console.log("Erro ao tentar excluir: ", error);
     throw error;
   }
+};
+
+export const useCreateProduct = async (data: any) => {
+  const requestData: HttpRequest = {
+    method: "POST",
+    url: "produto/create_new/produtos",
+    data,
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  };
+
+  const response = await HttpClient.request(requestData);
+  console.log("response: ", response);
+  return response;
 };

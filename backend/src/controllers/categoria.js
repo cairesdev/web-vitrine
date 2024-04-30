@@ -16,7 +16,10 @@ class CategoryController {
   static async getAll(req, res) {
     try {
       const products = await Product.find();
-      return res.json(products);
+      return res.json({
+        messages: "Categorias capturados com sucesso",
+        results: products,
+      });
     } catch (error) {
       return res.status(400).json({ message: error.message });
     }

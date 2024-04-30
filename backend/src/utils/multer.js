@@ -1,7 +1,7 @@
 const multer = require("multer");
 const { v4: uuid } = require("uuid");
 
-const basePath = "../lib/";
+const basePath = "./lib/";
 
 const local = multer.diskStorage({
   destination: function (req, file, cb) {

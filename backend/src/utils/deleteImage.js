@@ -7,7 +7,7 @@ const basePath = "lib/";
 class DeleteImg {
   async single(file_name, directory) {
     return promisify(fs.unlink)(
-      path.resolve(__dirname, "../../../", `${basePath}${directory}`, file_name)
+      path.resolve(__dirname, "../../", `${basePath}${directory}`, file_name)
     );
   }
 }

@@ -1,2 +1,5 @@
 .env
 node_modules
+
+lib/produtos/*
+lib/categoria/*

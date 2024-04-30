@@ -1,6 +1,6 @@
 const path = require("path");
 
-const basePath = "../../../lib/";
+const basePath = "../../lib/";
 
 class PathUtils {
   getFileDirectory(categoria) {

@@ -1,0 +1,42 @@
+/* HOME DO ADMIN */
+.product__list {
+  overflow: auto;
+  padding: 12px 18px;
+  background-color: var(--branco);
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.product__list::-webkit-scrollbar {
+  width: 5px;
+  background-color: var(--branco);
+}
+.product__list::-webkit-scrollbar-thumb {
+  background-color: var(--rosa-base);
+  border-radius: 4px;
+}
+
+.box__item {
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid var(--preto-medio);
+  padding-bottom: 14px;
+  padding-top: 14px;
+}
+
+.box__butons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 5px 0px;
+}
+
+.item__title {
+  font-size: 18px;
+  color: var(--preto-claro);
+}
+
+.image__produto {
+  border-radius: 8px;
+}

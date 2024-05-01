@@ -1,0 +1,56 @@
+body {
+  font-family: "Inter", sans-serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--preto);
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--preto);
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--preto);
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--preto-medio);
+  line-height: 1.5;
+}
+
+.highlight {
+  font-weight: 700;
+}
+
+.titulo_sessao {
+  padding-top: 4px;
+  font-size: 20px;
+  color: var(--preto-claro);
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+}

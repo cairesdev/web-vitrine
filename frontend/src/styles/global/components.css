@@ -1,0 +1,35 @@
+.container__section_admin {
+  position: relative;
+  padding-top: 80px;
+}
+
+.fixed__nav_header {
+  position: fixed;
+  background-color: var(--branco);
+  top: 82px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.fixed__nav_header div {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 0;
+}
+
+.input__pesquisa {
+  width: 200px;
+  height: 42px;
+  border: 1px solid var(--preto-medio);
+  padding: 11px 16px;
+  border-radius: 4px;
+}
+
+@media only screen and (max-width: 600px) {
+  .fixed__nav_header {
+    top: 71px;
+  }
+}

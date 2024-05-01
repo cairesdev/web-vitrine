@@ -1,0 +1,43 @@
+.yelow__button {
+  padding: 5px 10px;
+  border: none;
+  text-align: center;
+  background: var(--amarelo);
+  border-radius: 20px;
+  color: var(--branco);
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.red__button {
+  padding: 5px 10px;
+  border: none;
+  text-align: center;
+  background: var(--vermelho);
+  border-radius: 20px;
+  color: var(--branco);
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.blue__button {
+  padding: 5px 10px;
+  border: none;
+  text-align: center;
+  background: var(--azul);
+  border-radius: 20px;
+  color: var(--branco);
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.green__button {
+  padding: 5px 10px;
+  border: none;
+  text-align: center;
+  background: var(--verde);
+  border-radius: 20px;
+  color: var(--branco);
+  cursor: pointer;
+  font-weight: normal;
+}

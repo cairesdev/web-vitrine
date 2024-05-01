@@ -6,7 +6,7 @@ class ProductController {
     try {
       const products = await Product.find();
 
-      // await new Promise((resolve) => setTimeout(resolve, 3000));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
       res.status(200).json({
         message: "Produtos listados com sucesso",
@@ -15,7 +15,12 @@ class ProductController {
       });
     } catch (error) {
       console.error(error);
-      res.status(500).json({ error: error.message });
+      res.status(500).json({
+        error: error.message,
+        message: "Erro ao listar produtos",
+        quantidade: 0,
+        results: [],
+      });
     }
   }
   static async createProduct(req, res) {

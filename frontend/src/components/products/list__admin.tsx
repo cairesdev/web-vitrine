@@ -26,7 +26,7 @@ export default async function ListProductsADM({
           <Suspense fallback={<SearchSkeleton />}>
             <Search />
           </Suspense>
-          <Link href={"/"} className="green__button">
+          <Link href={"/admin/new-product"} className="green__button">
             Criar Novo
           </Link>
         </div>

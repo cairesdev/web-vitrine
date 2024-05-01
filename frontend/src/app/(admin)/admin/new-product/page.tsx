@@ -1,11 +1,11 @@
 "use client";
-// import "@/styles/containers.css";
-import styles from "@/styles/forms.module.css";
+import styles from "@/styles/admin/form.module.css";
 import { useState } from "react";
 import { useCreateProduct } from "@/hooks/useProdutos";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { IoExitOutline } from "react-icons/io5";
 
 export default function CreateProdutoPage() {
   const router = useRouter();
@@ -35,14 +35,18 @@ export default function CreateProdutoPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await useCreateProduct(formValues);
-    router.push("/admin/lista-produtos");
+    router.push("/admin");
   };
 
   return (
     <div>
-      <div className="header__listagem">
+      <header>
         <h1>Cadastrar Produto</h1>
-      </div>
+        <Link href={"/admin"}>
+          <IoExitOutline size={20} color="#FF424F" />
+        </Link>
+      </header>
+
       <br />
       <div className={styles.form_container}>
         <form onSubmit={handleSubmit}>
@@ -101,10 +105,7 @@ export default function CreateProdutoPage() {
             <button className={styles.form_button} type="submit">
               Cadastrar
             </button>
-            <Link
-              href={"/admin/lista-produtos"}
-              className={styles.btn_blue_no_fill}
-            >
+            <Link href={"/admin"} className={styles.btn_blue_no_fill}>
               Voltar
             </Link>
           </div>

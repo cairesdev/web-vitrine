@@ -41,3 +41,24 @@
   cursor: pointer;
   font-weight: normal;
 }
+
+.blue__no_fill {
+  padding: 5px 10px;
+  text-align: center;
+  background: none;
+  border-radius: 20px;
+  color: var(--azul);
+  cursor: pointer;
+  font-weight: normal;
+  border: 1px solid var(--azul);
+}
+.blue__two_fill {
+  padding: 5px 10px;
+  text-align: center;
+  background: var(--azul);
+  border-radius: 20px;
+  color: var(--branco);
+  cursor: pointer;
+  font-weight: normal;
+  border: 1px solid var(--azul);
+}

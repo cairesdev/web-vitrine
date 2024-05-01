@@ -1,11 +1,13 @@
 "use client";
 import styles from "@/styles/admin/form.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCreateProduct } from "@/hooks/useProdutos";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { IoExitOutline } from "react-icons/io5";
+import { getCategorias } from "@/hooks/useCategorias";
+import { ICategoria } from "@/models/responses";
 
 export default function CreateProdutoPage() {
   const router = useRouter();
@@ -16,6 +18,16 @@ export default function CreateProdutoPage() {
     CATEGORIA: "",
     STATUS: 1,
   });
+
+  const [categorias, setCategorias] = useState<ICategoria[]>([]);
+
+  useEffect(() => {
+    async function fetchCategorias() {
+      const { results } = await getCategorias();
+      setCategorias(results);
+    }
+    fetchCategorias();
+  }, []);
 
   const handleChange = (e: any) => {
     const { name, value, files } = e.target;
@@ -36,6 +48,7 @@ export default function CreateProdutoPage() {
     e.preventDefault();
     await useCreateProduct(formValues);
     router.push("/admin");
+    router.refresh();
   };
 
   return (
@@ -46,19 +59,22 @@ export default function CreateProdutoPage() {
           <IoExitOutline size={20} color="#FF424F" />
         </Link>
       </header>
-
-      <br />
-      <div className={styles.form_container}>
-        <form onSubmit={handleSubmit}>
+      <div>
+        <form className={styles.form_container} onSubmit={handleSubmit}>
           {!formValues.IMAGEM && (
-            <input
-              className={styles.form_file_input}
-              type="file"
-              name="IMAGEM"
-              accept="image/*"
-              onChange={handleChange}
-              multiple={false}
-            />
+            <label htmlFor="imagemInput" className="green__button">
+              Selecionar Imagem
+              <input
+                id="imagemInput"
+                className={styles.form_file_input}
+                type="file"
+                name="IMAGEM"
+                accept="image/*"
+                onChange={handleChange}
+                style={{ display: "none" }}
+                multiple={false}
+              />
+            </label>
           )}
           {formValues.IMAGEM && (
             <div className={styles.image_container}>
@@ -71,13 +87,14 @@ export default function CreateProdutoPage() {
               />
               <button
                 type="button"
-                className={styles.remove_button}
+                className="red__button"
                 onClick={handleRemoveImage}
               >
                 Remover Imagem
               </button>
             </div>
           )}
+          <div className="separator__10"></div>
           <input
             className={styles.form_input}
             type="text"
@@ -86,14 +103,19 @@ export default function CreateProdutoPage() {
             onChange={handleChange}
             placeholder="Nome do produto"
           />
-          <input
+          <select
             className={styles.form_input}
-            type="text"
-            name="CATEGORIA"
             value={formValues.CATEGORIA}
             onChange={handleChange}
-            placeholder="Categoria do produto"
-          />
+            name="CATEGORIA"
+          >
+            <option value="">Selecione uma categoria</option>
+            {categorias.map((categoria) => (
+              <option key={categoria._id} value={categoria.NOME}>
+                {categoria.NOME}
+              </option>
+            ))}
+          </select>
           <textarea
             className={styles.form_input}
             name="DESCRICAO"
@@ -102,10 +124,10 @@ export default function CreateProdutoPage() {
             placeholder="Descrição do produto"
           />
           <div className={styles.box__buttons}>
-            <button className={styles.form_button} type="submit">
+            <button className="blue__two_fill" type="submit">
               Cadastrar
             </button>
-            <Link href={"/admin"} className={styles.btn_blue_no_fill}>
+            <Link href={"/admin"} className="blue__no_fill">
               Voltar
             </Link>
           </div>

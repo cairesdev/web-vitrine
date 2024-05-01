@@ -12,6 +12,7 @@ export interface Iresponse {
   message: string;
   quantidade?: number;
   results: IProduct[];
+  error?: any;
 }
 
 export interface IResponseUnique {

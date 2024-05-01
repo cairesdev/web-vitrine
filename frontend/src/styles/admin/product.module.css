@@ -20,7 +20,7 @@
 .box__item {
   display: flex;
   gap: 10px;
-  border-bottom: 1px solid var(--preto-medio);
+  border-bottom: 1px solid var(--rosa-base);
   padding-bottom: 14px;
   padding-top: 14px;
 }

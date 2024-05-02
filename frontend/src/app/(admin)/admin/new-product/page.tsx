@@ -1,7 +1,7 @@
 "use client";
 import styles from "@/styles/admin/form.module.css";
 import { useEffect, useState } from "react";
-import { useCreateProduct } from "@/hooks/useProdutos";
+import { CreateProduct } from "@/hooks/useProdutos";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -46,7 +46,7 @@ export default function CreateProdutoPage() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await useCreateProduct(formValues);
+    await CreateProduct(formValues);
     router.push("/admin");
     router.refresh();
   };

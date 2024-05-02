@@ -58,7 +58,7 @@ export const deleteProduct = async (id: string, image: string) => {
   }
 };
 
-export const useCreateProduct = async (data: any) => {
+export const CreateProduct = async (data: any) => {
   const requestData: HttpRequest = {
     method: "POST",
     url: "produto/create_new/produtos",

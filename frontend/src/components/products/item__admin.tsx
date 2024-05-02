@@ -9,7 +9,7 @@ export default function ItemProductADM({ item }: { item: IProduct }) {
   return (
     <div className={styles.box__item}>
       <Image
-        src={`http://localhost:4000/produtos/${item.IMAGEM}`}
+        src={`${process.env.NEXT_PUBLIC_API_PROD}produtos/${item.IMAGEM}`}
         alt={item.NOME}
         width={80}
         height={80}

@@ -25,7 +25,7 @@ export default function ItemProductADM({ item }: { item: IProduct }) {
             <Link href={"/"} className="blue__button">
               Visualizar
             </Link>
-            <Link href={"/"} className="yelow__button">
+            <Link href={"#"} className="yelow__button">
               Editar
             </Link>
             <DeletarButton id={item._id} image={item.IMAGEM} />

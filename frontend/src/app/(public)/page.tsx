@@ -1,7 +1,15 @@
+import Image from "next/image";
+
 export default function Home() {
   return (
     <div>
-      <h1>Home</h1>
+      <header>
+        <h1>
+          <Image src="/logomarca.svg" alt="Logo" width={16} height={16} />
+          {"  "}
+          KS Variedades
+        </h1>
+      </header>
     </div>
   );
 }

@@ -12,6 +12,16 @@
   overflow-x: scroll;
 }
 
+.container__itens_horizontal {
+  display: flex;
+  flex-direction: row;
+  gap: 10px 15px;
+  padding: 8px 12px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
 .container__itens::-webkit-scrollbar {
   height: 4px;
   background-color: var(--cinza-claro);
@@ -32,6 +42,11 @@
   border-radius: 8px;
   border: 1px solid #f5f5fa;
   max-width: 240px;
+}
+
+.container__itens_horizontal .item__produto {
+  flex: 1;
+  max-width: fit-content;
 }
 
 .item__produto:hover {

@@ -20,6 +20,7 @@ router.put(
   upload.uploadImage.single("IMAGEM"),
   ProductController.updateProduct
 );
+router.get("/list_by_categoria/:categoria", ProductController.listByCategoria);
 
 router.delete("/delete/:id/:image", ProductController.deleteProduct);
 

@@ -1,15 +1,16 @@
+import ListaProdutosHome from "@/components/layout/home/lista__produtos";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div>
+    <main>
       <header>
-        <h1>
-          <Image src="/logomarca.svg" alt="Logo" width={16} height={16} />
-          {"  "}
-          KS Variedades
-        </h1>
+        <Link href={"/"}>
+          <Image src="/icon.svg" alt="Logo" width={46} height={40} />
+        </Link>
       </header>
-    </div>
+      <ListaProdutosHome />
+    </main>
   );
 }

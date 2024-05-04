@@ -24,6 +24,30 @@ export const getProducts = async () => {
   }
 };
 
+export const getProductByCategoria = async ({
+  categoria,
+}: {
+  categoria: string;
+}) => {
+  const requestData: HttpRequest = {
+    method: "GET",
+    url: `produto/list_by_categoria/${categoria}`,
+  };
+  try {
+    const response = await HttpClient.request(requestData);
+    if ("data" in response) {
+      return response.data as Iresponse;
+    } else {
+      throw new Error(
+        "Ocorreu um erro durante a requisição, nenhum 'data' foi recebido."
+      );
+    }
+  } catch (error) {
+    console.log("Erro ao tentar capturar os produtos: ", error);
+    throw error;
+  }
+};
+
 export const getProduct = async (id: string) => {
   const requestData: HttpRequest = {
     method: "GET",

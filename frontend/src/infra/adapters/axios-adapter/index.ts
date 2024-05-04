@@ -26,6 +26,7 @@ export class AxiosHttpClient implements HttpClient {
       });
       return { ...axiosResponse, data: axiosResponse.data };
     } catch (error) {
+      console.log(error);
       const axiosError = error as AxiosError<any>;
       if (axiosError.response) {
         throw new Error(

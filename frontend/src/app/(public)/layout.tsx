@@ -21,6 +21,10 @@ export default function RootLayout({
         </Suspense>
       </header>
       {children}
+      <footer>
+        KS Variedades &copy; {new Date().getFullYear()} - Todos os direitos
+        reservados
+      </footer>
     </main>
   );
 }

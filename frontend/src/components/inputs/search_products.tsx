@@ -28,10 +28,10 @@ export default function SearchProduct() {
         key={searchParams?.get("q")}
         type="text"
         name="search"
-        placeholder="Procurar por produtos..."
+        placeholder="O que você está procurando?"
         autoComplete="off"
         defaultValue={searchParams?.get("q") || ""}
-        className="input__pesquisa"
+        className="input__pesquisa__home"
       />
     </form>
   );
@@ -40,7 +40,7 @@ export default function SearchProduct() {
 export function SearchSkeleton() {
   return (
     <form>
-      <input placeholder="Procurar por produtos..." />
+      <input placeholder="O que você está procurando?" />
     </form>
   );
 }

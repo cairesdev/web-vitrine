@@ -25,6 +25,14 @@
   border-radius: 4px;
 }
 
+.input__pesquisa__home {
+  width: 280px;
+  height: 42px;
+  border: 1px solid var(--preto-medio);
+  padding: 11px 16px;
+  border-radius: 4px;
+}
+
 @media only screen and (max-width: 600px) {
   .fixed__nav_header {
     top: 71px;

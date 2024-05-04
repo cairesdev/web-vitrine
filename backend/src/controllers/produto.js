@@ -6,8 +6,6 @@ class ProductController {
     try {
       const products = await Product.find();
 
-      // await new Promise((resolve) => setTimeout(resolve, 2000));
-
       res.status(200).json({
         message: "Produtos listados com sucesso",
         quantidade: products.length,

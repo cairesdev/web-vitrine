@@ -19,8 +19,8 @@ export default async function ListaProdutosHome() {
     <Suspense fallback={<LoaderProduto />}>
       <main className={styles.home__produtos}>
         <section>
-          <h3>Moda Feminina</h3>
-          <p>Produtos encontrados: {quantidade_cat_feminina}</p>
+          <h3 className={styles.titulo__secao__lista}>Moda Feminina</h3>
+          {/* <p>Produtos encontrados: {quantidade_cat_feminina}</p> */}
           <div className={styles.container__itens}>
             {cat_feminina &&
               cat_feminina.map((item) => (
@@ -30,8 +30,8 @@ export default async function ListaProdutosHome() {
         </section>
         <br />
         <section>
-          <h3>Sapatos e Calçados</h3>
-          <p>Produtos encontrados: {quantidade_sapatos}</p>
+          <h3 className={styles.titulo__secao__lista}>Sapatos e Calçados</h3>
+          {/* <p>Produtos encontrados: {quantidade_sapatos}</p> */}
           <div className={styles.container__itens}>
             {cat_sapatos &&
               cat_sapatos.map((item) => (
@@ -41,8 +41,8 @@ export default async function ListaProdutosHome() {
         </section>
         <br />
         <section>
-          <h3>Todos os Produtos</h3>
-          <p>Produtos encontrados: {quantidade}</p>
+          <h3 className={styles.titulo__secao__lista}>Todos os Produtos</h3>
+          {/* <p>Produtos encontrados: {quantidade}</p> */}
           <div className={styles.container__itens}>
             {results &&
               results.map((item) => <ItemProduto key={item._id} item={item} />)}

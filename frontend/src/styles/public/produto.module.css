@@ -13,8 +13,14 @@
 }
 
 .container__itens::-webkit-scrollbar {
-  height: 0px;
-  background-color: var(--rosa-base);
+  height: 4px;
+  background-color: var(--cinza-claro);
+  border-radius: 4px;
+}
+
+.container__itens::-webkit-scrollbar-thumb {
+  background-color: var(--cinza-escuro);
+  border-radius: 4px;
 }
 
 .item__produto {
@@ -42,4 +48,11 @@
 
 .box__detalhes b {
   font-weight: 600;
+}
+
+.titulo__secao__lista {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--cinza-escuro);
 }

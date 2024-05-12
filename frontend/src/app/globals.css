@@ -49,6 +49,8 @@ body {
   position: relative;
   height: 100vh;
   scroll-behavior: smooth;
+  position: relative;
+  min-height: 80vh;
 }
 
 header {
@@ -58,6 +60,31 @@ header {
   justify-content: space-between;
   padding: 12px 18px;
   background-color: var(--branco);
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--branco);
+  padding: 10px;
+  gap: 5px;
+}
+
+footer .img__container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 5px;
+}
+
+footer span {
+  color: var(--preto-medio);
+  font-size: 10px;
+}
+footer span a {
+  text-decoration: underline;
 }
 
 a {

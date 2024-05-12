@@ -11,7 +11,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main>
+    <main className="main__public">
       <header>
         <Link href={"/"}>
           <Image src="/icon.svg" alt="Logo" width={46} height={40} />
@@ -22,8 +22,17 @@ export default function RootLayout({
       </header>
       {children}
       <footer>
-        KS Variedades &copy; {new Date().getFullYear()} - Todos os direitos
-        reservados
+        <div className="img__container">
+          <Image src="/icon.svg" alt="Logo" width={30} height={30} />
+          <Image src="/cairesdev.svg" alt="cairesdev" width={30} height={30} />
+        </div>
+        <b>KS Variedades &copy; {new Date().getFullYear()}</b>
+        <span>
+          Feito com amor por{" "}
+          <Link target="_blank" href={"https://instagram.com/cairesdev"}>
+            @cairesdev
+          </Link>
+        </span>
       </footer>
     </main>
   );

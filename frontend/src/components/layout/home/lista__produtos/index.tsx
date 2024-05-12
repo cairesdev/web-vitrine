@@ -1,6 +1,7 @@
 import { getProducts, getProductByCategoria } from "@/hooks/useProdutos";
 import ItemProduto from "./item__produto";
 import styles from "@/styles/public/produto.module.css";
+import Link from "next/link";
 
 export default async function ListaProdutosHome() {
   // await new Promise((resolve) => setTimeout(resolve, 5000));
@@ -31,7 +32,14 @@ export async function ListByCategory({ categoria }: { categoria: string }) {
             results.map((item) => <ItemProduto key={item._id} item={item} />)}
         </div>
       </section>
-      <br />
+      <div className="btn_center">
+        <Link
+          className="blue__two_fill"
+          href={`/produto?collection=${categoria}`}
+        >
+          Clique aqui!
+        </Link>
+      </div>
     </main>
   );
 }

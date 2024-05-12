@@ -1,6 +1,7 @@
 import { IProduct } from "@/models/responses";
 import Image from "next/image";
 import styles from "@/styles/public/produto.module.css";
+import Link from "next/link";
 
 export default function ItemProduto({ item }: { item: IProduct }) {
   return (
@@ -18,6 +19,7 @@ export default function ItemProduto({ item }: { item: IProduct }) {
         <b>{item.NOME}</b>
         <p>{item.CATEGORIA}</p>
       </div>
+      <Link href={`/produto/${item._id}`}></Link>
     </div>
   );
 }

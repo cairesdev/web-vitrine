@@ -52,6 +52,7 @@
   font-weight: normal;
   border: 1px solid var(--azul);
 }
+
 .blue__two_fill {
   padding: 5px 10px;
   text-align: center;
@@ -61,4 +62,16 @@
   cursor: pointer;
   font-weight: normal;
   border: 1px solid var(--azul);
+  box-shadow: 1px 1px 1px 1px #ccc;
+}
+
+.blue__two_fill:hover {
+  filter: saturate(60%);
+}
+
+.btn_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
 }

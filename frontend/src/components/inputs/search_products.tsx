@@ -19,7 +19,7 @@ export default function SearchProduct() {
       newParams.delete("q");
     }
 
-    router.push(createUrl("/buscar", newParams));
+    router.push(createUrl("/produto", newParams));
   }
 
   return (

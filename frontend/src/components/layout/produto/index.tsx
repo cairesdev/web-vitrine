@@ -36,7 +36,7 @@ export default function Produto({ item }: { item: IProduct }) {
 
       <Link
         target="_blank"
-        href={`https://api.whatsapp.com/send?phone=${process.env.NEXT_PUBLIC_PHONE_NUMBER}&text=${process.env.NEXT_PUBLIC_DNS}produto/${item._id}`}
+        href={`https://api.whatsapp.com/send?phone=${process.env.NEXT_PUBLIC_PHONE_NUMBER}&text=${process.env.NEXT_PUBLIC_DNS}produto/${item._id} *${item.NOME}* *${item.CATEGORIA}*`}
         className={styles.more__about}
       >
         Saiba mais pelo WhatsApp <BsWhatsapp />

@@ -28,7 +28,7 @@ export default function RootLayout({
         </div>
         <b>KS Variedades &copy; {new Date().getFullYear()}</b>
         <span>
-          Feito com amor por{" "}
+          Feito por{" "}
           <Link target="_blank" href={"https://instagram.com/cairesdev"}>
             @cairesdev
           </Link>

@@ -1,12 +1,40 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import { ensureStartsWith } from "@/utils/utils";
 const inter = Inter({ subsets: ["latin"] });
 
+const { SITE_NAME, INSTA_CREATOR, INSTA_SITE } = process.env;
+
+const instagramCreator = INSTA_CREATOR
+  ? ensureStartsWith(INSTA_CREATOR, "@")
+  : undefined;
+const instagramSite = INSTA_SITE
+  ? ensureStartsWith(INSTA_SITE, "https://")
+  : undefined;
+
+const baseUrl = process.env.NEXT_PUBLIC_DNS
+  ? `https://${process.env.NEXT_PUBLIC_DNS}`
+  : "http://localhost:3000";
+
 export const metadata: Metadata = {
-  title: "KS Variedades",
-  description: "Não perca tempo! as melhores promoções estão aqui.",
+  metadataBase: new URL(baseUrl),
+  title: {
+    default: SITE_NAME!,
+    template: "%s | " + SITE_NAME!,
+  },
+  robots: {
+    follow: true,
+    index: true,
+  },
+  ...(instagramCreator &&
+    instagramSite && {
+      twitter: {
+        card: "summary_large_image",
+        creator: instagramCreator,
+        site: instagramSite,
+      },
+    }),
 };
 
 export default function RootLayout({

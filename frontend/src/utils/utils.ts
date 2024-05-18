@@ -9,3 +9,8 @@ export const createUrl = (
 
   return `${pathname}${queryString}`;
 };
+
+export const ensureStartsWith = (stringToCheck: string, startsWith: string) =>
+  stringToCheck.startsWith(startsWith)
+    ? stringToCheck
+    : `${startsWith}${stringToCheck}`;

@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { ensureStartsWith } from "@/utils/utils";
-const inter = Inter({ subsets: ["latin"] });
 
 const { SITE_NAME, INSTA_CREATOR, INSTA_SITE } = process.env;
 
@@ -23,6 +21,7 @@ export const metadata: Metadata = {
     default: SITE_NAME!,
     template: "%s | " + SITE_NAME!,
   },
+  description: "Melhor site de moda da região!",
   robots: {
     follow: true,
     index: true,
@@ -35,6 +34,12 @@ export const metadata: Metadata = {
         site: instagramSite,
       },
     }),
+  openGraph: {
+    type: "website",
+    locale: "pt-BR",
+    url: baseUrl,
+    siteName: SITE_NAME!,
+  },
 };
 
 export default function RootLayout({
@@ -44,7 +49,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <main>{children}</main>
+      </body>
     </html>
   );
 }

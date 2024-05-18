@@ -9,7 +9,9 @@ class ProductController {
       res.status(200).json({
         message: "Produtos listados com sucesso",
         quantidade: products.length,
-        results: products,
+        data: {
+          produtos: products,
+        },
       });
     } catch (error) {
       console.error(error);

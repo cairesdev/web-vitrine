@@ -1,5 +1,5 @@
 import Produto from "@/components/layout/produto";
-import { HIDDEN_PRODUCT_TAG } from "@/constants";
+import { HIDDEN_PRODUCT_TAG } from "@/constants/sort";
 import { getProduct } from "@/hooks/useProdutos";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";

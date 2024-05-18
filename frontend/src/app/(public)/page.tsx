@@ -12,7 +12,7 @@ export default function Home() {
       <Banner />
       <br />
       <br />
-      <Suspense fallback={<LoaderProduto />}>
+      {/* <Suspense fallback={<LoaderProduto />}>
         <ListByCategory categoria="Moda Feminina" />
       </Suspense>
       <Suspense fallback={<LoaderProduto />}>
@@ -23,7 +23,7 @@ export default function Home() {
       </Suspense>
       <Suspense fallback={<LoaderProduto />}>
         <ListaProdutosHome />
-      </Suspense>
+      </Suspense> */}
     </main>
   );
 }

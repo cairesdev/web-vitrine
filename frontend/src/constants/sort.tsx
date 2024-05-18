@@ -1,50 +1,50 @@
 export type SortFilterItem = {
   title: string;
   slug: string | null;
-  sortKey: "RELEVANCE" | "BEST_SELLING" | "CREATED_AT" | "PRICE";
+  sortKey: "RELEVANCIA" | "MAIS_VENDIDO" | "CRIADO_EM" | "PREÇO";
   reverse: boolean;
 };
 
 export const defaultSort: SortFilterItem = {
-  title: "Relevance",
+  title: "Relevância",
   slug: null,
-  sortKey: "RELEVANCE",
+  sortKey: "RELEVANCIA",
   reverse: false,
 };
 
 export const sorting: SortFilterItem[] = [
   defaultSort,
   {
-    title: "Trending",
-    slug: "trending-desc",
-    sortKey: "BEST_SELLING",
+    title: "Tendencias",
+    slug: "tendencia-desc",
+    sortKey: "MAIS_VENDIDO",
     reverse: false,
   }, // asc
   {
-    title: "Latest arrivals",
+    title: "Adicionados recente",
     slug: "latest-desc",
-    sortKey: "CREATED_AT",
+    sortKey: "CRIADO_EM",
     reverse: true,
   },
   {
-    title: "Price: Low to high",
+    title: "Preço: baixo a alto",
     slug: "price-asc",
-    sortKey: "PRICE",
+    sortKey: "PREÇO",
     reverse: false,
   }, // asc
   {
-    title: "Price: High to low",
+    title: "Preço: alto a baixo",
     slug: "price-desc",
-    sortKey: "PRICE",
+    sortKey: "PREÇO",
     reverse: true,
   },
 ];
 
 export const TAGS = {
-  collections: "collections",
-  products: "products",
-  cart: "cart",
+  collections: "coleções",
+  products: "produtos",
+  cart: "carrinho",
 };
 
 export const HIDDEN_PRODUCT_TAG = "nextjs-frontend-hidden";
-export const DEFAULT_OPTION = "Default Title";
+export const DEFAULT_OPTION = "Titulo Padrão";

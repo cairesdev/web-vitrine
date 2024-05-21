@@ -3,11 +3,11 @@ import clsx from "clsx";
 export default function LogoIcon(props: React.ComponentProps<"svg">) {
   return (
     <svg
+      width="500"
+      height="431"
+      viewBox="0 0 500 431"
+      fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      aria-label={`${process.env.SITE_NAME} logo`}
-      viewBox="0 0 32 28"
-      {...props}
-      className={clsx("h-4 w-4 fill-black dark:fill-white", props.className)}
     >
       <ellipse cx="250" cy="215.456" rx="250" ry="214.912" fill="#222222" />
       <path

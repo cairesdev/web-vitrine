@@ -23,6 +23,12 @@ export const metadata: Metadata = {
     default: SITE_NAME!,
     template: "%s | " + SITE_NAME!,
   },
+  description: "Aqui você encontra as melhores promoções!",
+  keywords: ["moda", "moda feminina", "maranhao", "site de roupas"],
+  authors: [{ name: "João Caires", url: "instagram.com/cairesdev" }],
+  icons: {
+    icon: "/icon.svg",
+  },
   robots: {
     follow: true,
     index: true,

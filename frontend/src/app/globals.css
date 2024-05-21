@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
-
 @import url("@/styles/global/fonts.css");
+
 @import url("@/styles/global/butons.css");
 @import url("@/styles/global/components.css");
 
@@ -22,7 +22,7 @@
   --cinza-claro: #e0e0e0;
 
   /* Tons de preto */
-  --preto: #000000;
+  --preto: #1a1d23;
   --preto-claro: #222;
   --cinza-escuro: #444;
   --preto-suave: #666;
@@ -33,6 +33,10 @@
   --verde: #00ab56;
   --amarelo: #ffc400;
   --azul: #1a94ff;
+
+  --font-size-md: 20px;
+  --font-size-sm: 18px;
+  --font-size-xs: 16px;
 }
 
 * {

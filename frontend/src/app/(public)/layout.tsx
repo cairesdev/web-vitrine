@@ -1,8 +1,6 @@
+import SearchProduct, { SearchSkeleton } from "@/components/layout/search";
 import Image from "next/image";
 import Link from "next/link";
-import SearchProduct, {
-  SearchSkeleton,
-} from "@/components/inputs/search_products";
 import { Suspense } from "react";
 
 export default function RootLayout({

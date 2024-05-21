@@ -1,9 +1,6 @@
 import Banner from "@/components/layout/home/banner";
-import ListaProdutosHome, {
-  ListByCategory,
-} from "@/components/layout/home/lista__produtos";
-import LoaderProduto from "@/components/layout/home/lista__produtos/skeleton";
-
+import ListaProdutosHome from "@/components/layout/home";
+import { SkeletonListProduct } from "@/components/product/card";
 import { Suspense } from "react";
 
 export default function Home() {
@@ -12,16 +9,7 @@ export default function Home() {
       <Banner />
       <br />
       <br />
-      <Suspense fallback={<LoaderProduto />}>
-        <ListByCategory categoria="Moda Feminina" />
-      </Suspense>
-      <Suspense fallback={<LoaderProduto />}>
-        <ListByCategory categoria="Cosméticos" />
-      </Suspense>
-      <Suspense fallback={<LoaderProduto />}>
-        <ListByCategory categoria="Sapatos e Calçados" />
-      </Suspense>
-      <Suspense fallback={<LoaderProduto />}>
+      <Suspense fallback={<SkeletonListProduct />}>
         <ListaProdutosHome />
       </Suspense>
     </main>

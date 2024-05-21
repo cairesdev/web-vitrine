@@ -9,22 +9,23 @@ h1 {
 }
 
 h2 {
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: var(--font-size-md);
   color: var(--preto);
+  font-weight: 600;
 }
 
 h3 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--preto);
+  color: var(--verde-escuro);
 }
 
 p {
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   font-weight: 400;
-  color: var(--preto-medio);
+  color: var(--preto);
   line-height: 1.5;
+  word-wrap: break-word;
 }
 
 .highlight {
@@ -35,22 +36,4 @@ p {
   padding-top: 4px;
   font-size: 20px;
   color: var(--preto-claro);
-}
-
-@media only screen and (max-width: 600px) {
-  h1 {
-    font-size: 1.9rem;
-  }
-
-  h2 {
-    font-size: 1.8rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-  }
-
-  p {
-    font-size: 0.9rem;
-  }
 }

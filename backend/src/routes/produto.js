@@ -11,7 +11,7 @@ router.get("/show_uinque/:id", ProductController.getProduct);
 
 router.post(
   "/create_new/:categoria",
-  upload.uploadImage.single("IMAGEM"),
+  upload.uploadImage.array("IMAGEM", 5),
   ProductController.createProduct
 );
 
@@ -22,6 +22,6 @@ router.put(
 );
 router.get("/list_by_categoria/:categoria", ProductController.listByCategoria);
 
-router.delete("/delete/:id/:image", ProductController.deleteProduct);
+router.delete("/delete/:id", ProductController.deleteProduct);
 
 module.exports = router;

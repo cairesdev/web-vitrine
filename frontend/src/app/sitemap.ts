@@ -1,43 +1,34 @@
 import { getAllProduct } from "@/lib/backend/product";
-import { validateEnvironmentVariables } from "@/utils/utils";
 import { MetadataRoute } from "next";
 
 type Route = {
   url: string;
   lastModified: string;
+  changefreq: string;
+  priority: number;
 };
 
-const baseUrl = process.env.NEXT_PUBLIC_API_PROD
-  ? `https://${process.env.NEXT_PUBLIC_API_PROD}`
+const baseUrl = process.env.STORE_DOMAIN
+  ? `https://${process.env.STORE_DOMAIN}`
   : "http://localhost:3000";
 
-export const dynamic = "force-dynamic";
-
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  validateEnvironmentVariables();
-
-  // Define the base routes
-  const routesMap = ["/", "/produto"].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date().toISOString(),
-  }));
-
   const { result } = await getAllProduct();
-  let lastModified = new Date().toISOString();
 
-  const productsPromise = result.map((product) => ({
-    url: `${baseUrl}/product/${product._id}`,
-    lastModified: lastModified,
+  const routes = result.map((product) => ({
+    url: `${baseUrl}product/${product._id}`,
+    lastModified: new Date().toISOString(),
+    changefreq: "daily",
+    priority: 0.8,
   }));
 
-  let fetchedRoutes: Route[] = [];
-
-  try {
-    fetchedRoutes = await productsPromise;
-  } catch (error) {
-    console.error("Error fetching routes:", error);
-    throw new Error("Erro ao gerar o sitemap");
-  }
-
-  return [...routesMap, ...fetchedRoutes];
+  return [
+    {
+      url: baseUrl,
+      lastModified: new Date().toISOString(),
+      changefreq: "daily",
+      priority: 1,
+    },
+    ...routes,
+  ];
 }

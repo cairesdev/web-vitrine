@@ -1,0 +1,16 @@
+{
+  "name": "KS Variedades",
+  "short_name": "KS Variedades",
+  "icons": [
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "background_color": "#fff",
+  "description": "Aqui você encontra as melhores promoções!",
+  "display": "fullscreen",
+  "start_url": "/",
+  "theme_color": "#fff"
+}

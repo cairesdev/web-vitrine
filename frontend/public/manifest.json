@@ -1,16 +1,21 @@
 {
   "name": "KS Variedades",
   "short_name": "KS Variedades",
+  "start_url": "ksvariedades.vercel.app/",
+  "display": "minimal-ui",
+  "description": "Aqui você encontra as melhores promoções!",
   "icons": [
     {
       "src": "logo.png",
       "type": "image/png",
       "sizes": "192x192"
+    },
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ],
   "background_color": "#fff",
-  "description": "Aqui você encontra as melhores promoções!",
-  "display": "fullscreen",
-  "start_url": "/",
   "theme_color": "#fff"
 }

@@ -1,21 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import { ensureStartsWith } from "@/utils/utils";
-const inter = Inter({ subsets: ["latin"] });
 
-const { SITE_NAME, INSTA_CREATOR, INSTA_SITE } = process.env;
+const { SITE_NAME, NEXT_PUBLIC_DNS, NEXT_PUBLIC_API_PROD } = process.env;
 
-const instagramCreator = INSTA_CREATOR
-  ? ensureStartsWith(INSTA_CREATOR, "@")
-  : undefined;
-const instagramSite = INSTA_SITE
-  ? ensureStartsWith(INSTA_SITE, "https://")
-  : undefined;
-
-const baseUrl = process.env.NEXT_PUBLIC_DNS
-  ? `https://${process.env.NEXT_PUBLIC_DNS}`
-  : "http://localhost:3000";
+const baseUrl = NEXT_PUBLIC_DNS as string;
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -23,7 +11,6 @@ export const metadata: Metadata = {
     default: SITE_NAME!,
     template: "%s | " + SITE_NAME!,
   },
-
   description: "Aqui você encontra as melhores promoções!",
   keywords: ["moda", "moda feminina", "maranhao", "site de roupas"],
   authors: [{ name: "João Caires", url: "instagram.com/cairesdev" }],
@@ -34,14 +21,6 @@ export const metadata: Metadata = {
     follow: true,
     index: true,
   },
-  ...(instagramCreator &&
-    instagramSite && {
-      twitter: {
-        card: "summary_large_image",
-        creator: instagramCreator,
-        site: instagramSite,
-      },
-    }),
 };
 
 export default function RootLayout({
@@ -52,6 +31,8 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com/" />
+        <link rel="preconnect" href={NEXT_PUBLIC_API_PROD} />
         <meta
           name="google-site-verification"
           content="tv9OHVb6U6zIc9EjHP3NbhXsVdO5BG7xZa6b1-0FitU"
@@ -71,7 +52,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

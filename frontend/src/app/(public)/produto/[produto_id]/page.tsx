@@ -68,7 +68,6 @@ export default async function ProdutoDetalhe({ params }: Props) {
     image:
       process.env.NEXT_PUBLIC_API_PROD + "produtos/" + result.IMAGENS[0].url,
     description: result.SEO.description,
-    datePublished: result.createdAt,
     offers: {
       "@type": "Offer",
       availability: "https://schema.org/InStock",

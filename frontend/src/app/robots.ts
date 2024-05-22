@@ -1,5 +1,5 @@
-const baseUrl = process.env.NEXT_PUBLIC_DNS
-  ? `https://${process.env.NEXT_PUBLIC_DNS}`
+const baseUrl = process.env.STORE_DOMAIN
+  ? `https://${process.env.STORE_DOMAIN}`
   : "http://localhost:3000";
 
 export default function robots() {

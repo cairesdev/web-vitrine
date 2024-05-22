@@ -48,43 +48,6 @@ export function Gallery({
       </div>
 
       {images.length > 1 && (
-        <ul className={styles.all_other_images}>
-          {images.map((image, index) => {
-            const isActive = index === imageIndex;
-            const imageSearchParams = new URLSearchParams(
-              searchParams.toString()
-            );
-
-            imageSearchParams.set("image", index.toString());
-
-            return (
-              <li key={index} className={styles.images_others_container}>
-                <Link
-                  aria-label="Enlarge product image"
-                  href={createUrl(pathname, imageSearchParams)}
-                  scroll={false}
-                  className={isActive ? styles.active : ""}
-                >
-                  <Image
-                    fill
-                    priority
-                    sizes="(max-width: 768px) 100vw,
-                         (max-width: 1200px) 50vw,
-                         33vw"
-                    alt={image.altText}
-                    src={
-                      (process.env.NEXT_PUBLIC_API_PROD + image.url) as string
-                    }
-                    className={styles.image_secundary}
-                  />
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      )}
-
-      {images.length > 1 && (
         <div className={styles.arrows_container}>
           <Link href={previousUrl}>
             <PiCaretCircleLeftFill />

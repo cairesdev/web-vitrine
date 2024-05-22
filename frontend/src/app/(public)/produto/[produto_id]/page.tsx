@@ -68,6 +68,7 @@ export default async function ProdutoDetalhe({ params }: Props) {
     image:
       process.env.NEXT_PUBLIC_API_PROD + "produtos/" + result.IMAGENS[0].url,
     description: result.SEO.description,
+    datePublished: result.createdAt,
     offers: {
       "@type": "Offer",
       availability: "https://schema.org/InStock",
@@ -75,59 +76,37 @@ export default async function ProdutoDetalhe({ params }: Props) {
       priceCurrency: "BRL",
       url: process.env.INSTA_SITE + "produtos/" + result._id,
     },
-    sku: "001",
     brand: {
       "@type": "Brand",
       name: process.env.SITE_NAME,
     },
-    shippingDetails: {
-      "@type": "OfferShippingDetails",
-      shippingLabel: "Entrega Normal",
-      shippingDetails: {
-        "@type": "OfferShippingDetails",
-        shippingLabel: "Entrega Agendada",
-      },
-      shippingDestination: {
-        "@type": "DefinedRegion",
-        addressCountry: "BR",
-      },
-    },
-    seller: { "@type": "Organization", name: process.env.SITE_NAME },
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "5",
+      ratingValue: "4.7",
       ratingCount: "316",
+      bestRating: "5",
+      worstRating: "1",
     },
     review: [
       {
         "@type": "Review",
+        reviewBody: "Tecido muito bom, ótima costura",
         reviewRating: {
           "@type": "Rating",
           ratingValue: "5",
-          bestRating: 5,
+          bestRating: "5",
+          worstRating: "1",
         },
-        author: { "@type": "Person", name: "João" },
-        reviewBody: "Muito bom. Atende minhas espectativas.",
       },
       {
         "@type": "Review",
+        reviewBody: "Perfeito! superou minhas expectativas.",
         reviewRating: {
           "@type": "Rating",
           ratingValue: "5",
-          bestRating: 5,
+          bestRating: "5",
+          worstRating: "1",
         },
-        author: { "@type": "Person", name: "Kesia" },
-        reviewBody: "Roupa muito bonita e excelente!",
-      },
-      {
-        "@type": "Review",
-        reviewRating: {
-          "@type": "Rating",
-          ratingValue: "5",
-          bestRating: 5,
-        },
-        author: { "@type": "Person", name: "Ana Luiza" },
-        reviewBody: "Muito bonito o tecido, me atende bem.",
       },
     ],
   };

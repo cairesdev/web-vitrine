@@ -37,20 +37,6 @@ export default function RootLayout({
           name="google-site-verification"
           content="tv9OHVb6U6zIc9EjHP3NbhXsVdO5BG7xZa6b1-0FitU"
         />
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-1Z4N6RFL4T"
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-1Z4N6RFL4T');
-            `,
-          }}
-        />
       </head>
       <body>{children}</body>
     </html>

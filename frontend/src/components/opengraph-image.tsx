@@ -13,14 +13,14 @@ export default async function OpenGraphImage(
     (
       <div>
         <div>
-          <LogoIcon width={50} height={42} />
+          <LogoIcon />
         </div>
         <p>{title}</p>
       </div>
     ),
     {
-      width: 1200,
-      height: 630,
+      width: 500,
+      height: 500,
       fonts: [
         {
           name: "Inter",

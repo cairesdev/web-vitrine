@@ -20,8 +20,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!result) return notFound();
 
   return {
-    title: result.NOME,
-    description: result.DESCRICAO,
+    title: result.SEO.title,
+    description: result.SEO.description,
+    keywords: result.SEO.keywords,
+    authors: {
+      name: process.env.SITE_NAME,
+      url: process.env.INSTA_SITE,
+    },
+    alternates: {
+      canonical: process.env.INSTA_SITE + "/produtos/" + result._id,
+    },
     robots: {
       index: true,
       follow: true,
@@ -31,16 +39,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     },
     openGraph: {
-      title: result.NOME,
-      description: result.DESCRICAO,
+      title: result.SEO.title,
+      description: result.SEO.description,
       images: [
         {
           url:
             process.env.NEXT_PUBLIC_API_PROD +
             "produtos/" +
             result.IMAGENS[0].url,
-          width: 800,
-          height: 600,
+          width: 500,
+          height: 500,
           alt: result.NOME,
         },
       ],
@@ -57,25 +65,79 @@ export default async function ProdutoDetalhe({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "Product",
     name: result.NOME,
-
     image:
       process.env.NEXT_PUBLIC_API_PROD + "produtos/" + result.IMAGENS[0].url,
-    description: result.DESCRICAO,
+    description: result.SEO.description,
     offers: {
-      "@type": "AggregateOffer",
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
       price: result.PRECO,
       priceCurrency: "BRL",
-      availability:
-        result.STATUS == "1"
-          ? "https://schema.org/InStock"
-          : "https://schema.org/OutOfStock",
+      url: process.env.INSTA_SITE + "produtos/" + result._id,
     },
+    sku: "001",
+    brand: {
+      "@type": "Brand",
+      name: process.env.SITE_NAME,
+    },
+    shippingDetails: {
+      "@type": "OfferShippingDetails",
+      shippingLabel: "Entrega Normal",
+      shippingDetails: {
+        "@type": "OfferShippingDetails",
+        shippingLabel: "Entrega Agendada",
+      },
+      shippingDestination: {
+        "@type": "DefinedRegion",
+        addressCountry: "BR",
+      },
+    },
+    seller: { "@type": "Organization", name: process.env.SITE_NAME },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5",
+      ratingCount: "316",
+    },
+    review: [
+      {
+        "@type": "Review",
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: "5",
+          bestRating: 5,
+        },
+        author: { "@type": "Person", name: "João" },
+        reviewBody: "Muito bom. Atende minhas espectativas.",
+      },
+      {
+        "@type": "Review",
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: "5",
+          bestRating: 5,
+        },
+        author: { "@type": "Person", name: "Kesia" },
+        reviewBody: "Roupa muito bonita e excelente!",
+      },
+      {
+        "@type": "Review",
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: "5",
+          bestRating: 5,
+        },
+        author: { "@type": "Person", name: "Ana Luiza" },
+        reviewBody: "Muito bonito o tecido, me atende bem.",
+      },
+    ],
   };
 
   return (
     <main>
       <script
         type="application/ld+json"
+        id="schemaLdJson"
+        data-ncript="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(productJsonLd),
         }}

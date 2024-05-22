@@ -1,5 +1,6 @@
 const Product = require("../models/produto");
 const deleteImage = require("../utils/deleteImage");
+const OpenAI = require("../client/openai");
 
 class ProductController {
   static async getProducts(req, res) {
@@ -35,9 +36,24 @@ class ProductController {
         return res.status(400).json({ error: "Produto com nome duplicado" });
       }
 
+      const prompt = `Crie um array com dados otimizados, e pensados para SEO e indexação de produtos no google, com base no nome do produto que é: ${data.NOME}, sua categoria: ${data.CATEGORIA}. Nesse array quero uma descrição melhorada pois a escrita foi: ${data.DESCRICAO}, com tags para o keywords e SEO, uma curta descricao para metadata. Mantenha a estrutura de array seguinte:
+      {
+        "description": "string",
+        "keywords": string[],
+        "title": "string"
+      }
+      `;
+      const response = await OpenAI.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [{ role: "user", content: prompt }],
+        max_tokens: 1423,
+      });
+
+      let arrayTags = JSON.parse(response.choices[0].message.content);
+
       const product_data = {
         NOME: data.NOME,
-        DESCRICAO: data.DESCRICAO,
+        DESCRICAO: arrayTags.description,
         PRECO: data.PRECO,
         CATEGORIA: data.CATEGORIA,
         STATUS: data.STATUS,
@@ -46,6 +62,7 @@ class ProductController {
           url: file.filename,
           altText: data.altText || "Produto",
         })),
+        SEO: arrayTags,
       };
 
       const product = new Product(product_data);

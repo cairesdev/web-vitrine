@@ -8,6 +8,13 @@ export type Product = {
   STATUS: string;
   tags: string[];
   IMAGENS: Image[];
+  SEO: {
+    title: string;
+    description: string;
+    keywords: string[];
+  };
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type Image = {

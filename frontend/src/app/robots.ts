@@ -4,7 +4,13 @@ const baseUrl = process.env.STORE_DOMAIN
 
 export default function robots() {
   return {
-    rules: [{ userAgent: "*", allow: "/" }],
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/admin", "/api", "/auth", "/login", "/register"],
+      },
+    ],
     sitemap: `${baseUrl}/sitemap.xml`,
     host: baseUrl,
   };

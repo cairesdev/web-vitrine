@@ -74,7 +74,21 @@ export default async function ProdutoDetalhe({ params }: Props) {
       price: result.PRECO,
       priceCurrency: "BRL",
       url: process.env.INSTA_SITE + "produtos/" + result._id,
+      shippingDetails: {
+        "@type": "OfferShippingDetails",
+        shippingLabel: "Entrega Normal",
+        shippingDetails: {
+          "@type": "OfferShippingDetails",
+          shippingLabel: "Entrega Agendada",
+        },
+        shippingDestination: {
+          "@type": "DefinedRegion",
+          addressCountry: "BR",
+        },
+      },
+      seller: { "@type": "Organization", name: "KS Variedades" },
     },
+
     brand: {
       "@type": "Brand",
       name: process.env.SITE_NAME,
@@ -89,23 +103,31 @@ export default async function ProdutoDetalhe({ params }: Props) {
     review: [
       {
         "@type": "Review",
-        reviewBody: "Tecido muito bom, ótima costura",
         reviewRating: {
           "@type": "Rating",
           ratingValue: "5",
           bestRating: "5",
           worstRating: "1",
         },
+        author: {
+          "@type": "Person",
+          name: "Kesia",
+        },
+        reviewBody: "Tecido muito bom, ótima costura",
       },
       {
         "@type": "Review",
-        reviewBody: "Perfeito! superou minhas expectativas.",
         reviewRating: {
           "@type": "Rating",
           ratingValue: "5",
           bestRating: "5",
           worstRating: "1",
         },
+        author: {
+          "@type": "Person",
+          name: "Kesia",
+        },
+        reviewBody: "Perfeito! superou minhas expectativas.",
       },
     ],
   };

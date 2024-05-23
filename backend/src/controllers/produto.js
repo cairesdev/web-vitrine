@@ -65,6 +65,8 @@ class ProductController {
         SEO: arrayTags,
       };
 
+      console.log(product_data);
+
       const product = new Product(product_data);
       const savedProduct = await product.save();
 

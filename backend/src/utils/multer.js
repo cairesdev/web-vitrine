@@ -8,6 +8,7 @@ const local = multer.diskStorage({
     cb(null, `${basePath}produtos`);
   },
   filename: function (req, file, cb) {
+    console.log("Imagem");
     const fileExtension = file.originalname
       .split("")
       .reverse()

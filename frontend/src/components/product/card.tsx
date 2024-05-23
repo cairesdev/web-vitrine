@@ -9,6 +9,7 @@ export default function ItemProduto({ item }: { item: Product }) {
     <div className={styles.similar__item} key={item._id}>
       <Link
         href={"/produto/" + item._id}
+        rel="noopener noreferrer"
         className={styles.container__image_similar}
       >
         <Image

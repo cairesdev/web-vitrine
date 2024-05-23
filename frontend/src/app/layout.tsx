@@ -33,6 +33,8 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com/" />
         <link rel="preconnect" href={NEXT_PUBLIC_API_PROD} />
+        <link rel="canonical" href={baseUrl} />
+        <meta name="google" content="notranslate" />
         <meta
           name="google-site-verification"
           content="tv9OHVb6U6zIc9EjHP3NbhXsVdO5BG7xZa6b1-0FitU"

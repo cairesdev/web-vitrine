@@ -1,6 +1,7 @@
 const Product = require("../models/produto");
 const deleteImage = require("../utils/deleteImage");
 const OpenAI = require("../client/openai");
+const __fileDelete = require("../middleware/_fileDelete");
 
 class ProductController {
   static async getProducts(req, res) {
@@ -33,6 +34,11 @@ class ProductController {
     try {
       const existingProduct = await Product.findOne({ NOME: data.NOME });
       if (existingProduct) {
+        if (req.files) {
+          req.files.forEach((file) => {
+            deleteImage.single(file.filename, "produtos");
+          });
+        }
         return res.status(400).json({ error: "Produto com nome duplicado" });
       }
 
@@ -65,10 +71,10 @@ class ProductController {
         SEO: arrayTags,
       };
 
-      console.log(product_data);
-
       const product = new Product(product_data);
       const savedProduct = await product.save();
+
+      __fileDelete();
 
       return res.status(201).json({
         message: "Produto criado com sucesso",

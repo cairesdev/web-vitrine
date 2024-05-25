@@ -41,6 +41,5 @@ export type UniqueProduct = {
 export type AllProductList = {
   message: string;
   result: Product[];
-  quantidade: number;
   total: number;
 };

@@ -6,6 +6,7 @@ const upload = require("../utils/multer");
 const ProductController = require("../controllers/produto");
 
 router.get("/show_all", ProductController.getProducts);
+router.get("/search", ProductController.getProductsByFilters);
 
 router.get("/show_uinque/:id", ProductController.getProduct);
 

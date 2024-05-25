@@ -1,4 +1,4 @@
-import SearchProduct, { SearchSkeleton } from "@/components/layout/search";
+import SearchProduct, { SearchSkeleton } from "@/components/search";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -12,7 +12,7 @@ export default function RootLayout({
     <main className="main__public">
       <header>
         <Link href={"/"}>
-          <Image src="/icon.svg" alt="Logo" width={46} height={40} />
+          <Image src="/icon.svg" alt="KS Variedades" width={46} height={40} />
         </Link>
         <Suspense fallback={<SearchSkeleton />}>
           <SearchProduct />
@@ -21,7 +21,7 @@ export default function RootLayout({
       {children}
       <footer>
         <div className="img__container">
-          <Image src="/icon.svg" alt="Logo" width={30} height={30} />
+          <Image src="/icon.svg" alt="Logo" width={36} height={30} />
           <Image src="/cairesdev.svg" alt="cairesdev" width={30} height={30} />
         </div>
         <b>KS Variedades &copy; {new Date().getFullYear()}</b>

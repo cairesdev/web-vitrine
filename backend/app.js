@@ -16,6 +16,7 @@ app.disable("x-powered-by");
 app.use(
   bodyParser.json({ limit: "200mb", extended: true, parameterLimit: 50000 })
 );
+app.use(helmet());
 app.use(
   cors({
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
@@ -28,7 +29,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/produtos", express.static(path.join(__dirname, "./lib/produtos")));
 app.use("/categoria", express.static(path.join(__dirname, "./lib/categoria")));
-app.use(helmet());
+app.use("/banner_image", express.static(path.join(__dirname, "./lib/banners")));
 
 app.get("/", (req, res) => res.status(200).json("ok"));
 app.use(routes);

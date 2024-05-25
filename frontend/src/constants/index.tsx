@@ -43,8 +43,13 @@ export const sorting: SortFilterItem[] = [
 export const TAGS = {
   collections: "coleções",
   products: "produtos",
-  cart: "carrinho",
+  banner: "banners",
 };
 
 export const HIDDEN_PRODUCT_TAG = "nextjs-frontend-hidden";
 export const DEFAULT_OPTION = "Titulo Padrão";
+
+export enum Limit {
+  RECOMENDACOES = 10,
+  SIMILARES = 6,
+}

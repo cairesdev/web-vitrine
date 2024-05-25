@@ -6,10 +6,10 @@ const baseUrl = process.env.STORE_DOMAIN
   : "http://localhost:3000";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const { result } = await getAllProduct();
+  const { result } = await getAllProduct({ limit: 30 });
 
   const routes = result.map((product) => ({
-    url: `${baseUrl}/produto/${product._id}`,
+    url: `${baseUrl}/produtos/${product._id}`,
     lastModified: new Date().toISOString(),
     changefreq: "daily",
     priority: 0.8,
@@ -21,6 +21,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date().toISOString(),
       changefreq: "daily",
       priority: 1,
+    },
+    {
+      url: baseUrl + "/sobre-nos",
+      lastModified: new Date().toISOString(),
+      changefreq: "monthly",
+      priority: 0.5,
     },
     ...routes,
   ];

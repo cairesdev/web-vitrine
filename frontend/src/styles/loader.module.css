@@ -22,6 +22,12 @@
   color: #555;
 }
 
+.icon__pulse {
+  animation: pulse 3s linear infinite;
+  width: 130px;
+  height: 130px;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);

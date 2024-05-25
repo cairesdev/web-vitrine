@@ -17,6 +17,17 @@ const local = multer.diskStorage({
   },
 });
 
+const banners = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, `${basePath}banners`);
+  },
+  filename: function (req, file, cb) {
+    const fileExtension = path.extname(file.originalname);
+    const fileName = `${uuid()}${fileExtension}`;
+    cb(null, fileName);
+  },
+});
+
 const icons = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, `${basePath}categoria`);
@@ -35,6 +46,11 @@ const uploadImage = multer({
 
 const uploadIcon = multer({
   storage: icons,
+  limits: { fieldSize: 20 * 1024 * 1024 },
+});
+
+const uploadBanner = multer({
+  storage: banners,
   limits: { fieldSize: 20 * 1024 * 1024 },
 });
 
@@ -82,4 +98,33 @@ const convertToWebP = async (req, res, next) => {
   }
 };
 
-module.exports = { uploadImage, uploadIcon, convertToWebP };
+const convertUniqueToWebp = async (req, res, next) => {
+  if (!req.file) return next();
+
+  try {
+    const originalFilePath = req.file.path;
+    const fileNameWithoutExt = path.parse(req.file.filename).name;
+    const newFilePath = path.join(
+      path.dirname(originalFilePath),
+      `${fileNameWithoutExt}.webp`
+    );
+
+    await sharp(originalFilePath).webp({ quality: 80 }).toFile(newFilePath);
+
+    req.file.filename = `${fileNameWithoutExt}.webp`;
+    req.file.path = newFilePath;
+
+    next();
+  } catch (err) {
+    console.error("Error processing image:", err);
+    next(err);
+  }
+};
+
+module.exports = {
+  uploadImage,
+  uploadIcon,
+  uploadBanner,
+  convertToWebP,
+  convertUniqueToWebp,
+};

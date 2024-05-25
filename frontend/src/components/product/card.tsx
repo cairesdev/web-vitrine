@@ -1,16 +1,16 @@
 import styleLoader from "@/styles/loader.module.css";
 import Image from "next/image";
-import styles from "@/styles/public/product.module.css";
+import styles from "@/styles/public/item.module.css";
 import Link from "next/link";
 import { Product } from "@/types/product";
 
 export default function ItemProduto({ item }: { item: Product }) {
   return (
-    <div className={styles.similar__item} key={item._id}>
+    <div className={styles.card__container}>
       <Link
-        href={"/produto/" + item._id}
+        href={"/produtos/" + item._id}
         rel="noopener noreferrer"
-        className={styles.container__image_similar}
+        className={styles.link__image_card}
       >
         <Image
           alt={item.IMAGENS[0].altText}
@@ -22,10 +22,9 @@ export default function ItemProduto({ item }: { item: Product }) {
           sizes="(max-width: 768px) 100vw,
                    (max-width: 1200px) 50vw,
                    33vw"
-          className={styles.image_similar}
         />
       </Link>
-      <div className={styles.desc__similars}>
+      <div className={styles.desc__item}>
         <b>R$ {item.PRECO}</b>
         <p>{item.NOME}</p>
       </div>

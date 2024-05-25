@@ -1,20 +1,57 @@
 const Product = require("../models/produto");
 const deleteImage = require("../utils/deleteImage");
 const OpenAI = require("../client/openai");
+const __fileDelete = require("../services/__fileDelete");
+const __revalidate = require("../services/_revalidateService");
 
 class ProductController {
   static async getProducts(req, res) {
-    const { page = 1, limit = 10 } = req.query;
+    const { page = 1, limit = 10, query } = req.query;
+
     try {
       const skip = (page - 1) * limit;
 
       const products = await Product.find().skip(skip).limit(parseInt(limit));
 
-      const totalProducts = await Product.countDocuments();
-
       return res.status(200).json({
         message: "Produtos listados com sucesso",
-        quantidade: products.length,
+        total: limit,
+        result: products,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({
+        error: error.message,
+        message: "Erro ao listar produtos",
+      });
+    }
+  }
+  static async getProductsByFilters(req, res) {
+    const { limit = 10, query } = req.query;
+
+    try {
+      if (!query && !limit) {
+        return res.redirect("/produto/show_all");
+      }
+
+      const searchQuery = query
+        ? {
+            $or: [
+              { NOME: { $regex: query, $options: "i" } },
+              { CATEGORIA: { $regex: query, $options: "i" } },
+              { tags: { $regex: query, $options: "i" } },
+            ],
+          }
+        : {};
+
+      const products = await Product.find(searchQuery).limit(parseInt(limit));
+
+      const totalProducts = await Product.countDocuments(searchQuery).limit(
+        limit
+      );
+
+      return res.status(200).json({
+        message: "Produtos filtrados com sucesso",
         total: totalProducts,
         result: products,
       });
@@ -33,6 +70,11 @@ class ProductController {
     try {
       const existingProduct = await Product.findOne({ NOME: data.NOME });
       if (existingProduct) {
+        if (req.files) {
+          req.files.forEach((file) => {
+            deleteImage.single(file.filename, "produtos");
+          });
+        }
         return res.status(400).json({ error: "Produto com nome duplicado" });
       }
 
@@ -65,10 +107,11 @@ class ProductController {
         SEO: arrayTags,
       };
 
-      console.log(product_data);
-
       const product = new Product(product_data);
       const savedProduct = await product.save();
+
+      __fileDelete();
+      __revalidate("produtos");
 
       return res.status(201).json({
         message: "Produto criado com sucesso",

@@ -33,7 +33,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com/" />
         <link rel="preconnect" href={NEXT_PUBLIC_API_PROD} />
-        <link rel="canonical" href="https://ksvariedades.vercel.app" />
+        <link rel="canonical" href="https://ksvariedades.vercel.app/" />
         <meta name="google" content="notranslate" />
         <meta
           name="google-site-verification"

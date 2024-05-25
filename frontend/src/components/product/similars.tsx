@@ -17,7 +17,7 @@ export default async function ProductSimilars({
         {item.map((item) => (
           <div className={styles.similar__item} key={item._id}>
             <Link
-              href={"/produto/" + item._id}
+              href={"/produtos/" + item._id}
               className={styles.container__image_similar}
             >
               <Image
